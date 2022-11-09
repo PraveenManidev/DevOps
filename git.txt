@@ -1,0 +1,77 @@
+###Initial Setting###
+sudo apt install git
+Y
+git --version
+git init
+git status
+git add .
+git status
+git commit -m "Message"
+git config --global user.email "#gmail.com"
+git config --global user.name "#username"
+git config user.name
+#username
+git commit -m "Message"
+add remote origin 
+git push -u origin master
+#Username
+#Pat Token
+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
+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
+
+
+
+###Git - Commands###
+git log //Logging
+git reset #hashcode //above commits will be removed 
+
+git reset --hard #hashcode //above commits will be removed 
+
+git stash - Move to backarea with earlier commit 
+
+git stash pop - Getting back to the real stage 
+git stash clear - Delete all files in the stash area 
+
+cat filename //Display the content
+
+FORK is used to create a clone in our own account from upstream account.
+
+git remote add upstream #url //From where we are forked
+
+
+git branch #branch_name //Creating branches
+git checkout #branch_name //Heading towards the new branch
+
+git merge #branch_name //Merging to the master branch only when head is in master 
+
+Create each and every single branch for every single pull request 
+
+
+
+git fetch --all --prune //Fetching all the changes in the upstream
+
+git reset --hard upstream/main //Reset the changes to the origin from the upstream main branch
+git push origin main
+
+git pull upstream main //Reset the changes to the origin from the upstream main branch
+
+##Multiple Commit##
+git rebase -i #last commit hashcode //Interactive environment
+
+pick 
+pick -> s
+pick -> s
+pick -> s
+
+:X
+Add message 
+
+
+
+
+
+
+
+
+
+
