@@ -16,10 +16,7 @@ git remote add origin https://github.com/PraveenManidev/DevOps.git
 git push -u origin master
 #Username
 #Pat Token
-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
-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
-
-
+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
 
 ###Git - Commands###
 git log //Logging
