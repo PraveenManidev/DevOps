@@ -7,8 +7,8 @@ git status
 git add .
 git status
 git commit -m "Message"
-git config --global user.email "#gmail.com"
-git config --global user.name "#username"
+git config --global user.email "praveenthuyamani@gmail.com"
+git config --global user.name "PraveenManidev"
 git config user.name
 #username
 git commit -m "Message"
@@ -69,7 +69,18 @@ Add message
 
 
 
-
+create a new repository on the command line
+echo "# DevOps" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/PraveenManidev/DevOps.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/PraveenManidev/DevOps.git
+git branch -M main
+git push -u origin main
 
 
 
