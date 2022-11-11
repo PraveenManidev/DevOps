@@ -1,0 +1,223 @@
+Basic Commands
+
+ls // list all items 
+
+mkdir // create a folder in current directory
+
+cd // change directory
+
+echo $PATH - First computer checks the directories in these directories
+
+ls -a // show hidden files
+
+pwd // current working directories
+
+ls -l // more information
+
+ls -R // list all files in the sub directories
+
+cat > file.txt //create a file and opens in current directory
+
+cat file.txt two.txt > total.txt //merge two files into total file
+
+cat file.txt | tr a-z A-Z > upper.txt //Redirect tunnelling
+
+mkdir -p first/middle/last // middle file created in between first and last 
+
+cp file.txt copyfile.txt //copy a file from file to copy_file.txt
+
+mv names.txt random //move names file into random folder 
+
+mv names.txt file.txt //Rename a file
+
+rm copyfile.txt // Delete permanently
+
+cp -R test random // copy all the subfolders from test to random 
+
+rm -R random // remove folder
+
+rm -rf random //force remove with glitch file 
+
+sudo //admin permission
+
+df -h//disk management
+
+du -h //current directories management
+
+head file.txt //first 10 lines from file 
+
+diff total.txt two.txt // Compares each line and outputs the line that didnt match 
+
+locate "*.txt" // show all text files
+
+find random // show all files
+
+ls -l upper.txt //shows permisson
+
+chmod u=rwx,g=rx,o=r upper.txt
+
+chmod 777 upper.txt //user group other permission 4-read 2 -write 1 execute
+
+sudo chown root upper.txt //change owner
+
+find . -type f -name "*.txt" -exec rm -rf {} + //finds all the txt files in the current directories and removes permanently
+
+grep - global regular expression print //search for a content in files
+
+grep "Kunal" names.txt // prints exact word in file
+
+grep -w "Kunal" names.txt // complete word
+
+grep -iw "kunal" names.txt //excludes case sensitive 
+
+grep -n "Kunal" names.txt // line number 
+i - case sensitive
+w - complete word
+n - line number
+r - recursive 
+l - locate
+c - count
+
+
+grep -win "Praveen" ./*.txt //search and shows the file and line number 
+
+grep -rwin "Praveen" . //recursively searches for the keyword
+
+grep -p "\w" names.txt //reg expressions
+
+wget //used to dowload package
+
+top //process running 
+
+kill pid//close the process
+
+& //first and second command
+|| //if first command fails second execute
+| // assigns the send the output that was in the first output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
