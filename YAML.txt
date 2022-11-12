@@ -1,0 +1,202 @@
+YAML - Basics
+yamllint.com //CLI
+
+Its going to use in Docker, Kubernetes and Cloud configuration files.
+
+-- Yaml ain't Markup Language
+
+-- Data format used to exchange data
+
+-- Just able to store data not commands 
+
+-- It is known as Data Serialization. Converting the data object present in the complex data structure into a stream of storage.
+
+-- More powerful when representing complex data.
+
+-- Parsing is easy
+
+It works in Key value pair
+
+--- //Separate a document
+
+"apple" : "fruit"
+
+cities:
+ - apple
+ - mumbai
+ - Tamilnadu
+
+---
+cities : [new delhi, mumbai]
+
+---
+{mango: "yellow fruit",age: 56}
+
+
+# Comments
+...
+
+
+Datatypes:
+
+#multiple lines 
+bio: |
+hey my name is praveen.
+am very nice dood 
+
+#single line
+
+message: >
+this will
+all be 
+in one single line
+
+number: 5473
+marks: 98.76
+booleanValue: No #n, N, false, FALSE, False
+# same for true
+
+# specify the type
+zero: !!int 0
+positiveNum: !!int 45
+binaryNum: !!int 0b1101
+octalnum: !!int 06547
+hexa: !!int 0x45 
+
+commaValue: !!int +540_000 #540,000
+
+#floating point numbers
+
+marks: !!float 56.89
+infinite: !!float .inf
+not_an_number : .nan
+
+#null
+surname: !!null Null #null Null ~
+
+#dates and time
+date: !!timestamp 2022-11-12 6:55:30
+
+#Advance datatypes
+
+student: !!seq
+ - marks
+ - name
+ - roll_no
+
+cities: [newdelhi, mumbai]
+
+spqrse seq: #empty:
+ - hey
+ - how
+ - 
+ - Null
+ - sup
+ 
+#Nested commands can be used as 
+
+- 
+ - Mango
+ - Apple
+ 
+-
+ - Carrot
+ - Tomato
+
+#key : value pairs are called maps
+!!map
+
+name: Praveen
+role:
+ age: 25
+ job: SE
+ 
+#keys may have duplicate values
+pair examples : !!pairs
+ - job: student
+ - job: teacher
+ 
+ 
+#set will allow you to have unique values
+
+names: !!set
+ - Praveen
+ - Thuyamani
+
+
+#dictionary !!omap
+
+people: !!omap
+ - praveen: 
+     name: Praven Thuyamani
+     age: 78
+     height: 678
+ - Thuyamani:
+     name: Thuyamani
+     age: 53
+     height: 567
+
+#reusing some properties using anchors
+
+likings: &likes
+ fav fruit: mango
+ dislikes: grapes
+
+person:
+ name: Praveen
+ <<: *likes
+
+person2:
+ name: Thuyamani
+ <<: *likes
+ dislikes: berries #overriding the anchors
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
