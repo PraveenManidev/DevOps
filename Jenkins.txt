@@ -1,0 +1,9 @@
+systemctl start jenkins
+
+systemctl status jenkins
+
+systemctl stop jenkins
+
+Initiating Jenkins job with Github 
+
+

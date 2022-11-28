@@ -1,0 +1,232 @@
+#Kubernetes - Techworld with Nana
+Managing the increased usage of containers.
+
+Features 
+#High Availability or no downtime
+#Scalability or high performance
+#Disaster recovery - backup and restore
+
+#Master Node
+  -- API Server = Entrypoint to K8s cluster UI, API and CLI
+  -- Controller Manager = Keeps track of whats happening in the cluster
+  -- Scheduler = ensures the pods placement
+  --etcd = Kubernetes backing store 
+  -- Virtual Network = Creates one unified machine
+ 
+If we lose access to master node we will not be having the access to worker node so we will be having the backup of the master node so we will be having the two master node in the Kubernetes clusters.
+
+Kubernetes components:
+
+Node = Simple server physical or virtual machine
+
+
+Pod is an abstraction over a container; smallest unit; Which creates the layer or running environment of the container 
+
+1 Application per pod 
+
+Each pod gets the own IP address; It interacts with this IP address
+
+Pods are ephemeral whenever a pod dies then there will be replacement pod and we need to adjusts the IP whenever pod restarts
+
+Service - static ip / permanent ip address attached to each pod 
+
+http://node-ip:port of the service = to test the application 
+ 
+ingress - Request first goes to this and it forward to service; acts as a load balancer
+
+Config Map - External configuration for our application //database url or external service; This will be attached to the pod so the pod actually gets the data that config map contains 
+
+Secret - used to store secret data credentials for eg it stored in base 64 encoded format; It will be connected to the pod and it will read the data from the secret.
+
+We can use this config map and secret in our application pod using the environmental variable or properties file.
+
+
+Volume:
+
+If pods gets restarted the data would be gone; It can be fixed by volumes.
+
+It basically attaches a physical storage on a hard to your pod and that storage could be either on a local machine which is to the same server node where the pod is running or the remote storage, outside of the K8 cluster. 
+
+Kubernetes doesnt manage data persistance 
+
+Replicating everything from one node to another and service will be common for both.
+
+Service is also a load balancer; it will actually catch the request and forward it to whichever pod is less busy 
+
+Deployment: To create replica we need to blueprint for pods; Specify how many replicas we want to have
+
+Statefulset: Its a mechanism used to Replicate the database in the k8 
+
+These two are used to scaling the application up or down
+Deployment = Stateless Apps
+Statefulset = Stateful apps or databases 
+
+To avoid multiple challenges the DB are often hosted outside of Kubernetes cluster 
+
+
+All the configuration cluster goes through a master node with the process called API Server. 
+
+Client could be,
+
+UI, API and CLI 
+All will send the configuration requests to the API server which is the only entry point into the cluster. These request have to be in yaml or json format.
+
+
+yaml:
+Deployment : a template for creating pods 
+
+replicas : 2 
+container:
+	image: my-image  
+	env:
+	 - name:
+	ports:
+	 - containerPort: 8080
+
+
+3 Parts of the K8s Configuration File:
+apiversion: and kind => declaring what we need to create
+
+1. metadata of the component 
+2. specfication
+3. status // automatically generated and added by Kubernetes
+
+K8 will compare the desired state and actual state if there is a mismatch K8 will fix it. 
+
+etcd holds the current status of any K8s component
+
+#minikube, kubectl and Minikube cluster
+
+minikube - Master and Node process run on one Node; Its just for starting and deleting the cluster.
+
+kubectl - command line tool for k8 cluster; It is for configuration of the cluster.
+
+install Minikube from official documents #deb
+
+#minikube start --driver docker //create and start the cluster
+
+K8 Demo
+#ConfigMap - MongoDB Endpoint
+#Secret - MongoDB User & Pwd
+# Deployment & Service for MongoDB Application with internal service 
+#Deployment & Service for own WebApp with external service.
+
+Create 4 files and in terminal create the followings:
+
+deploy the external configurations 
+deploy the database
+deploy the application
+
+kubectl apply -f filenames x (4files)
+
+kubectl get all // all the components created in cluster; deployments, pods and services 
+
+#kubectl get pod // Retrieve all the pods
+#kubectl get svc // Retrieve all the services
+#kubectl get node -o wide //Retreive the node IP address in detail
+
+=====================================================================================================
+=====================================================================================================
+#Kubernetes - Kunal Kushwaha
+
+Microservices - We can able to easily scale applications independently to required amount of size.
+
+Orchestrator:
+#updating the version with zero downtime
+#fixing the damaged 
+#scaling the extended versions
+
+-- Deploying and managing containers dynamically
+
+-- We can run it on our own machine outside the public providers 
+
+-- We can migrate it from one to another 
+-- Volumes
+-- Load balancing
+
+Cluster = Control plane + Nodes (Master node + worker node)
+
+worker node is the place where our application will be running.
+
+control plane is actually going to manage the worker nodes.
+
+Declarative way - files deploying
+
+Pod - smallest scheduling unit in the kubernetes; Inside the pod you run containers 
+
+#Pods-Scheduling Unit
+
+1.Create microservices
+2.Containerize it 
+3.Put the containers in Pods
+4.Deploy these pods to controller
+
+Controllers are loops that watches the state of our kubernetes cluster, then make request changes where needed.
+
+Each controller tries to move the cluster state closer to the desired state.
+
+Deployment is a built in controller in k8s
+
+#Control plane:
+Its a basically a collection of various components that helps us in managing the overall health of the cluster.  
+
+ -- API Server
+ -- Scheduler
+ -- Controller manager
+ -- etcd
+ 
+	#API Server - All the communication will happen via this server: post api; send commands within yaml files 
+All the other components like etcd, controller manager and API server will communicate to the API server.
+
+	#etcd - Its a database: If API server required any information about the cluster, it communicates like etcd over here. //State and configuration about the entire cluster.
+
+	#Controller manager: It managers the controller
+	-- desired state
+	-- current state
+	-- differences
+	-- make the changes 
+
+	#Scheduler - schedules the stuffs
+
+#Worker node: 
+	-- kube proxy
+	-- kubelet
+	-- container runtime
+	
+	#kubelet: It will be attached whenever a woker node is created and its job is basically listen to api server and transfers to container runtime 
+	#kube proxy: networking and it helps in communicating with the outside network; Manages IP address to nodes; Every node will have its own ip address 
+	
+#minikube - Its great for testing purposes and it offers a one node cluster;It will act as both control plane and worker node.
+
+#minikube dashboard //Opens up the dashboard in the localhost
+
+
+kubectl get deployments //Display all the deployments
+
+kubectl delete deployments nginx-deployment
+
+
+Once the deployment is deleted then the pods corresponding to that deployment will also will get terminating 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
